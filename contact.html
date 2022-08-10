@@ -180,6 +180,19 @@
                             <div id="w-node-_5895c8c7-e142-d955-c3f1-210bdaa1e09a-ee419e84" class="form-field-wrapper"><label for="Message" class="form-label">Message</label><textarea id="Message" name="Message" maxlength="5000" data-name="Message" placeholder="Message..." class="form-input is-textarea w-input"></textarea></div>
                             <div id="w-node-_5895c8c7-e142-d955-c3f1-210bdaa1e0b0-ee419e84" class="margin-top"><input type="submit" value="Submit" data-wait="Please wait..." class="button is-form-submit w-button"></div>
                           </form>
+                          <script>
+                            var formElement = document.getElementById("form");
+                            var buttonElement = document.getElementById("button");
+                            formElement.addEventListener("botpoison-challenge-start", function () {
+                              buttonElement.setAttribute("disabled", "disabled");
+                            });
+                            formElement.addEventListener("botpoison-challenge-success", function () {
+                              buttonElement.removeAttribute("disabled");
+                            });
+                            formElement.addEventListener("botpoison-challenge-error", function () {
+                              buttonElement.removeAttribute("disabled");
+                            });
+                          </script>
                           <div class="form-message-success w-form-done">
                             <div>Thank you! Your submission has been received!</div>
                           </div>
